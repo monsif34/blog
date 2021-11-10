@@ -12,8 +12,25 @@
         {% block javascripts %}
             {#{{ encore_entry_script_tags('app') }}#}
         {% endblock %}
+
     </head>
     <body>
+    <header>
+        <img src="{{ asset("images/logo.jpeg") }}">
+        <h4>This friendly message is coming from:</h4>
+        <a href="{{ path("contact",{titre:"Contacte"}) }}">Nous contacter</a>
+        <h4>This friendly message is coming from:</h4>
+        <a href="{{ path("article") }}">Nos articles</a>
+        <h4>This friendly message is coming from:</h4>
+        <a href="{{ path("blog") }}">Nos blog</a>
+    </header>
+
+    <h4>This friendly message is coming from:</h4>
+    <a href="{{ path("contact",{titre:"Contacte"}) }}">Nous contacter</a>
+    <h4>This friendly message is coming from:</h4>
+    <a href="{{ path("article") }}">Nos articles</a>
+    <h4>This friendly message is coming from:</h4>
+    <a href="{{ path("blog") }}">Nos blog</a>
         {% block body %}{% endblock %}
     </body>
 </html>
