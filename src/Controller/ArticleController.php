@@ -51,8 +51,18 @@ class ArticleController extends AbstractController
 
         $form = $this->createForm(ArticleType::class, $article);
 
+        $form->handleRequest($request);
 
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
 
+            $article = $form->getData();
+
+            $entityManager->persist($article);
+
+            $entityManager->flush();
+
+        }
 
         return $this->renderForm('article/index.html.twig', [
             'form' => $form,
